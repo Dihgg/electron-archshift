@@ -1,6 +1,6 @@
 {
   "name": "electron-arcshift",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Preflight and repackage eligible Electron macOS apps for Intel Macs.",
   "type": "module",
   "bin": {

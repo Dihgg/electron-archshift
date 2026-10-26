@@ -86,12 +86,6 @@ npm run release:minor
 npm run release:major
 ```
 
-For the first published release at the version already in `package.json`, use:
-
-```bash
-npm run release:first
-```
-
 Review the generated commit and tag, then push both:
 
 ```bash
@@ -121,10 +115,11 @@ Then configure the package's npm trusted publisher with:
 - Workflow filename: `publish.yml`
 - Allowed action: `npm publish`
 
-Finally, create the initial changelog/tag and push it. The workflow recognizes
-that `0.1.0` already exists and safely skips republishing it:
+Within two days of configuring the trusted publisher, create and push the first
+automated patch release. This publishes `0.1.1` and validates the OIDC trust
+relationship:
 
 ```bash
-npm run release:first
+npm run release:patch
 git push --follow-tags origin main
 ```

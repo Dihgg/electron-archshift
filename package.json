@@ -16,7 +16,6 @@
     "check": "node --check bin/archshift.js && node --check src/archshift.js",
     "test": "node --test",
     "release": "standard-version",
-    "release:first": "standard-version --first-release",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",

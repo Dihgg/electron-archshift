@@ -73,3 +73,58 @@ Intel Electron releases may require source changes or may not be convertible.
 
 The result is ad-hoc signed for local use; it is not Developer ID notarized.
 Only convert software you are authorized to modify.
+
+## Releasing
+
+Releases use Conventional Commit messages and `standard-version` to update the
+version, generate `CHANGELOG.md`, create the release commit, and create a `v*`
+Git tag. Choose one command:
+
+```bash
+npm run release:patch
+npm run release:minor
+npm run release:major
+```
+
+For the first published release at the version already in `package.json`, use:
+
+```bash
+npm run release:first
+```
+
+Review the generated commit and tag, then push both:
+
+```bash
+git push --follow-tags origin main
+```
+
+Pushing the tag starts `.github/workflows/publish.yml`. The workflow verifies
+the tag against `package.json`, installs from the lockfile, runs the tests,
+checks the package contents, and publishes to npm through trusted publishing.
+No npm access token is stored in GitHub.
+
+### First publication
+
+npm requires the package to exist before a trusted publisher can be attached.
+Bootstrap version `0.1.0` once from an npm account protected by 2FA:
+
+```bash
+npm login
+npm publish --access public
+```
+
+Then configure the package's npm trusted publisher with:
+
+- Provider: GitHub Actions
+- Organization or user: `Dihgg`
+- Repository: `electron-archshift`
+- Workflow filename: `publish.yml`
+- Allowed action: `npm publish`
+
+Finally, create the initial changelog/tag and push it. The workflow recognizes
+that `0.1.0` already exists and safely skips republishing it:
+
+```bash
+npm run release:first
+git push --follow-tags origin main
+```

@@ -1,0 +1,45 @@
+{
+  "name": "electron-arcshift",
+  "version": "0.1.0",
+  "description": "Preflight and repackage eligible Electron macOS apps for Intel Macs.",
+  "type": "module",
+  "bin": {
+    "electron-arcshift": "bin/archshift.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check bin/archshift.js && node --check src/archshift.js",
+    "test": "node --test",
+    "prepublishOnly": "npm run check && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dihgg/electron-archshift.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dihgg/electron-arcshift/issues"
+  },
+  "homepage": "https://github.com/Dihgg/electron-arcshift#readme",
+  "keywords": [
+    "electron",
+    "macos",
+    "intel",
+    "x64",
+    "asar",
+    "cli"
+  ],
+  "author": "Diego Lopes <dihgg@dihgg.com>",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@electron/asar": "^4.3.0",
+    "@electron/packager": "^20.3.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,5 @@
+node_modules/
+electron-arcshift-output/
+.DS_Store
+*.log
+*.tgz

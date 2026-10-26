@@ -76,9 +76,9 @@ Only convert software you are authorized to modify.
 
 ## Releasing
 
-Releases use Conventional Commit messages and `standard-version` to update the
-version, generate `CHANGELOG.md`, create the release commit, and create a `v*`
-Git tag. Choose one command:
+Releases use Conventional Commit messages and `commit-and-tag-version` to
+update the version, generate `CHANGELOG.md`, create the release commit, and
+create a `v*` Git tag. Choose one command:
 
 ```bash
 npm run release:patch

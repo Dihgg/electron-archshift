@@ -15,10 +15,10 @@
   "scripts": {
     "check": "node --check bin/archshift.js && node --check src/archshift.js",
     "test": "node --test",
-    "release": "standard-version",
-    "release:patch": "standard-version --release-as patch",
-    "release:minor": "standard-version --release-as minor",
-    "release:major": "standard-version --release-as major",
+    "release": "commit-and-tag-version",
+    "release:patch": "commit-and-tag-version --release-as patch",
+    "release:minor": "commit-and-tag-version --release-as minor",
+    "release:major": "commit-and-tag-version --release-as major",
     "prepublishOnly": "npm run check && npm test"
   },
   "repository": {
@@ -50,6 +50,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "standard-version": "^9.5.0"
+    "commit-and-tag-version": "^13.2.1"
   }
 }
